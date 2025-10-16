@@ -137,88 +137,75 @@ export default function ServiceCard({ title, blurb, details, icon }: ServiceCard
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-full mx-auto min-w-0 group rounded-xl border border-white/10 bg-black/[0.65] backdrop-blur-md overflow-hidden will-change-transform"
+      className="relative w-full mx-auto min-w-0 group rounded-xl border border-white/10 bg-gray-900 overflow-hidden will-change-transform"
       data-card-mask="true"
       variants={revealVariants}
       initial="hidden"
       animate={controls}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-      style={prefersReduced ? undefined : { ...style3d, ...styleShadow, ['--mx' as any]: mousePos.mx, ['--my' as any]: mousePos.my }}
     >
-      {/* Background grid layer (deep plane) */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-20 opacity-50"
-        style={{
-          transform: 'translateZ(-12px)',
-          background:
-            'linear-gradient(transparent 95%, rgba(255,255,255,0.06) 95%), linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.06) 95%)',
-          backgroundSize: '20px 20px, 20px 20px',
-          backgroundPosition: '0 0, 0 0'
-        }}
-      />
-
-      {/* Background glow layer (mid plane) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-60 transition-opacity duration-300"
-        style={{
-          transform: 'translateZ(-6px)',
-          background:
-            'radial-gradient(1200px 300px at 10% -20%, rgba(215,183,63,0.12), transparent), radial-gradient(1200px 300px at 110% 120%, rgba(215,183,63,0.12), transparent)'
-        }}
-      />
-
-      {/* Neon edge (pseudo via extra element) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-xl"
-        style={{
-          boxShadow:
-            'inset 0 0 0 1px rgba(255,255,255,0.06), 0 0 24px rgba(215,183,63,0.18)'
-        }}
-      />
-
-      {/* Specular highlight that follows pointer (desktop only) */}
-      {!prefersReduced && !flipped && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-          style={{
-            mixBlendMode: 'screen',
-            background:
-              'radial-gradient(400px 200px at calc(var(--mx) * 100%) calc(var(--my) * 100%), rgba(255,255,255,0.12), transparent 60%)'
-          }}
-        />
-      )}
-
-      {/* Content layer (parallax: translateZ) */}
-      <div
-        ref={heightWrapperRef}
-        className="relative p-0 w-full"
-        style={{ transform: 'translateZ(0px)', height: lockedH ? `${lockedH}px` : undefined, transition: 'height 300ms ease' }}
-        onTransitionEnd={(e) => {
-          if (e.propertyName === 'height' && !flipped) {
-            // After shrink completes, release explicit height back to auto
-            setLockedH(undefined)
-          }
+        className="relative h-full w-full rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 bg-gray-800"
+        style={prefersReduced ? undefined : { 
+          ...style3d, 
+          ...styleShadow, 
+          ['--mx' as any]: mousePos.mx, 
+          ['--my' as any]: mousePos.my 
         }}
       >
+        {/* Background glow layer (mid plane) */}
         <div
-          ref={innerRef}
-          className="relative p-5 md:p-6 w-full h-full"
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-60 transition-opacity duration-300"
           style={{
-            transformStyle: 'preserve-3d',
-            transition: 'transform 500ms cubic-bezier(0.22, 1, 0.36, 1)',
-            transform: `translateZ(0) rotateY(${flipped ? 180 : 0}deg)`
+            transform: 'translateZ(-6px)',
+            background:
+              'radial-gradient(1200px 300px at 10% -20%, rgba(215,183,63,0.12), transparent), radial-gradient(1200px 300px at 110% 120%, rgba(215,183,63,0.12), transparent)'
+          }}
+        />
+
+        {/* Neon edge (pseudo via extra element) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-xl"
+          style={{
+            boxShadow:
+              'inset 0 0 0 1px rgba(255,255,255,0.06), 0 0 24px rgba(215,183,63,0.18)'
+          }}
+        />
+
+        {/* Specular highlight that follows pointer (desktop only) */}
+        {!prefersReduced && !flipped && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            style={{
+              mixBlendMode: 'screen',
+              background:
+                'radial-gradient(400px 200px at calc(var(--mx) * 100%) calc(var(--my) * 100%), rgba(255,255,255,0.12), transparent 60%)'
+            }}
+          />
+        )}
+
+        {/* Content layer (parallax: translateZ) */}
+        <div
+          ref={heightWrapperRef}
+          className="relative p-0 w-full"
+          style={{ transform: 'translateZ(0px)', height: lockedH ? `${lockedH}px` : undefined, transition: 'height 300ms ease' }}
+          onTransitionEnd={(e) => {
+            if (e.propertyName === 'height' && !flipped) {
+              // After shrink completes, release explicit height back to auto
+              setLockedH(undefined)
+            }
           }}
         >
-          {/* Front face */}
           <div
-            ref={frontRef}
-            className="absolute inset-0 w-full h-full backface-hidden overflow-hidden"
-            style={{ transform: 'translateZ(0px)', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}
+            ref={innerRef}
+            className="relative p-5 md:p-6 w-full h-full"
+            style={{
+              transformStyle: 'preserve-3d',
+              transition: 'transform 500ms cubic-bezier(0.22, 1, 0.36, 1)',
+              transform: `translateZ(0) rotateY(${flipped ? 180 : 0}deg)`
+            }}
             aria-hidden={flipped}
           >
             <div ref={frontContentRef} className="pt-6 md:pt-8 pb-6 md:pb-8 px-0">

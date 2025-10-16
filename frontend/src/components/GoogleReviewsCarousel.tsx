@@ -116,13 +116,13 @@ const GoogleReviewsCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-4 sm:py-8 overflow-hidden">
+    <div className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-4 sm:py-8 overflow-hidden relative z-20">
       <Slider key={bpKey} {...settings} className="py-4 sm:py-8">
         {reviews.map((review) => (
           <div key={review.id} className="px-1 sm:px-2">
             <div 
               data-card-mask="true"
-              className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6 h-full mx-1 sm:mx-0"
+              className="bg-black border border-gray-800 rounded-xl p-4 sm:p-6 h-full mx-1 sm:mx-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex items-start sm:items-center mb-3 sm:mb-4">
                 <div className="bg-blue-500 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center text-lg sm:text-xl font-bold">

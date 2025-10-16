@@ -65,7 +65,7 @@ function App() {
       <ParticleMorphing scrollProgress={scrollProgress} />
       
       {/* Gym Logo */}
-      <div className="relative z-10 w-full flex justify-center pt-2">
+      <div className="relative z-20 w-full flex justify-center pt-2">
         <img 
           src="/assets/gr-city-gym-logo.png"
           alt="GR City Gym"
@@ -80,7 +80,7 @@ function App() {
         />
       </div>
       {/* Top navigation removed per request */}
-      <div className="container mx-auto px-4 pt-4 sm:pt-8 md:pt-12 flex flex-col items-center min-h-screen">
+      <div className="container mx-auto px-4 pt-4 sm:pt-8 md:pt-12 flex flex-col items-center min-h-screen relative z-10">
         {/* Hero at the very top */}
         <section className="w-full max-w-4xl text-center pb-8">
           <h1 className="text-white font-extrabold tracking-tight leading-tight text-3xl sm:text-5xl md:text-6xl" style={{ fontFamily: 'Oswald, sans-serif' }}>

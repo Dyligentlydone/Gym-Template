@@ -468,11 +468,11 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 1 }}>
       <canvas
         ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full"
-        style={{ zIndex: 0 }}
+        style={{ zIndex: 1 }}
       />
     </div>
   )

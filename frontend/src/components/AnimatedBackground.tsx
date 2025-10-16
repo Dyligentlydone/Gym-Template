@@ -111,8 +111,11 @@ export default function AnimatedBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10"
-      style={{ background: 'linear-gradient(to bottom, #1b1d21, #23272e)' }}
+      className="fixed top-0 left-0 w-full h-full"
+      style={{ 
+        background: 'linear-gradient(to bottom, #1b1d21, #23272e)',
+        zIndex: 0 
+      }}
     />
   );
 }

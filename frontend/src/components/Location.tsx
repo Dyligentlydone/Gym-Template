@@ -6,10 +6,10 @@ export default function LocationBlock() {
   return (
     <section id="location" className="py-20">
       <h2 className="heading-oswald text-center text-3xl sm:text-4xl font-extrabold mb-10">Location & Hours</h2>
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-20">
         <div 
           data-card-mask="true"
-          className="rounded-2xl border border-white/10 bg-white/5 p-6"
+          className="rounded-2xl border border-gray-800 bg-black p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
           <h3 className="heading-oswald text-2xl font-bold mb-2">Address</h3>
           <p className="text-white/80">1625 Leonard St NE<br/>Grand Rapids, MI 49505</p>
@@ -30,7 +30,7 @@ export default function LocationBlock() {
         </div>
         <div 
           data-card-mask="true"
-          className="rounded-2xl overflow-hidden border border-white/10"
+          className="rounded-2xl overflow-hidden border border-gray-800 bg-black shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
           <iframe
             title="Gym Map"
