@@ -1,0 +1,19 @@
+[phases.setup]
+provider = "node"
+node_version = "18.x"
+
+[phases.install]
+cmds = [
+  "npm install -g vite",
+  "cd frontend", 
+  "npm install"
+]
+
+[phases.build]
+cmds = [
+  "cd frontend",
+  "vite build --emptyOutDir"
+]
+
+[start]
+cmd = "cd frontend && npm run start"

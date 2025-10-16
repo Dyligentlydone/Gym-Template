@@ -1,0 +1,13 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "pip install -r requirements.txt"
+
+[deploy]
+startCommand = "gunicorn --bind :$PORT app:app"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+numReplicas = 1
+
+[deploy.env]
+PYTHONUNBUFFERED = "1"

@@ -1,0 +1,14 @@
+{
+  "name": "dyligent-solutions",
+  "version": "1.0.0",
+  "description": "Dyligent Solutions Monorepo",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm run preview",
+    "dev": "cd frontend && npm run dev"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

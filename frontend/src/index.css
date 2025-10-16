@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  background-color: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  color: inherit;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.chat-container {
+  height: calc(100vh - 8rem);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* PDF Styles */
+.pdf-container {
+  background: white;
+  color: black;
+}
+
+.pdf-section {
+  break-after: page;
+  padding: 1in;
+  min-height: 11in;
+  max-width: 8.5in;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.pdf-section:last-child {
+  break-after: avoid;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1in;
+  color: black;
+}
+
+.section-content {
+  font-size: 12px;
+  line-height: 1.5;
+  color: black;
+}
+
+.section-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0.5in;
+  margin-bottom: 0.25in;
+  color: black;
+}
+
+.section-content ul {
+  list-style-type: decimal;
+  padding-left: 0.25in;
+  margin: 0.25in 0;
+}
+
+.section-content li {
+  margin-bottom: 0.15in;
+  color: black;
+}
+
+.timeline-section {
+  margin-bottom: 0.5in;
+}
+
+.timeline-section:last-child {
+  margin-bottom: 0;
+}
+
+.strategy,
+.support {
+  margin-top: 0.5in;
+}
+
+/* Print-specific styles */
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    background: white;
+  }
+
+  .pdf-container {
+    background: white !important;
+  }
+
+  .pdf-section {
+    background: white !important;
+    color: black !important;
+  }
+
+  * {
+    color: black !important;
+  }
+}
+
+.pdf-content {
+  width: 8.5in !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+}
+
+.pdf-page {
+  min-height: 11in;
+  position: relative;
+  padding: 0.75in;
+  box-sizing: border-box;
+}
+
+.pdf-section {
+  page-break-inside: avoid;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.pdf-section h2 {
+  page-break-after: avoid;
+  width: 100%;
+}
+
+.pdf-section h3 {
+  page-break-after: avoid;
+  width: 100%;
+}
+
+/* Timeline section specific styles */
+.pdf-section .timeline-milestone {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  width: 100%;
+}
+
+/* Force background colors in PDF */
+.pdf-content * {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  box-sizing: border-box !important;
+}
+
+/* Success page specific styles */
+.pdf-success-page {
+  padding: 0.5in !important;
+}
+
+.success-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.success-content h2 {
+  text-align: center;
+  color: #000000 !important;
+  margin-bottom: 1rem !important;
+}
+
+.success-content .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.success-story-section,
+.next-steps-section {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: fit-content;
+}
+
+@media print {
+  .pdf-success-page {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .pdf-success-page .prose {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  .pdf-success-page h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .pdf-success-page h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .pdf-success-page p {
+    margin-bottom: 0.5em !important;
+  }
+
+  .success-content .grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    page-break-inside: avoid !important;
+  }
+
+  .success-story-section,
+  .next-steps-section {
+    page-break-inside: avoid !important;
+  }
+
+  .next-steps-section > div {
+    margin-bottom: 1rem !important;
+  }
+
+  .next-steps-section > div:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* PDF Page Base Styles */
+.pdf-section {
+  width: 8.5in;
+  min-height: 11in;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.page-content {
+  height: 100%;
+  padding: 0.75in;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+  color: #000000;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.section-title {
+  color: #FFA500;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.prose-content {
+  color: #000000;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Overview Page Styles */
+.pdf-overview-page .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.pdf-overview-page .action-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pdf-overview-page .action-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pdf-overview-page .action-number {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #FFA500;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+
+/* Timeline Page Styles */
+.pdf-timeline-page .timeline-grid {
+  display: grid;
+  gap: 2rem;
+  height: 100%;
+}
+
+.timeline-milestone {
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.milestone-title {
+  color: #FFA500;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.milestone-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.steps-title,
+.outcome-title {
+  color: #FFA500;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+/* Success Page Styles */
+.pdf-success-page .content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  height: 100%;
+}
+
+.strategy-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Print-specific styles */
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .pdf-section {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+
+  /* Dynamic text sizing based on content length */
+  .prose-content {
+    font-size: var(--dynamic-font-size, 0.875rem);
+  }
+
+  /* Ensure content fits on page */
+  .page-content {
+    max-height: 11in;
+    overflow: hidden;
+  }
+
+  /* Adjust spacing for different content lengths */
+  .content-wrapper,
+  .timeline-grid,
+  .content-grid {
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* Prevent orphaned headers */
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* Keep related content together */
+  .action-item,
+  .timeline-milestone,
+  .strategy-section > div {
+    page-break-inside: avoid;
+  }
+}
+
+/* PDF Styles */
+.pdf-content {
+  color: #000;
+  background: #fff;
+}
+
+.pdf-page {
+  padding: 20mm;
+  page-break-after: always;
+  position: relative;
+  min-height: 297mm;
+  width: 210mm;
+  margin: 0 auto;
+}
+
+.pdf-page:last-child {
+  page-break-after: avoid;
+}
+
+@media print {
+  .pdf-page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+
+/* Ensure clean breaks */
+.pdf-page {
+  break-inside: avoid;
+}
+
+/* Prevent unwanted breaks */
+h1, h2, h3, h4, h5, h6 {
+  break-after: avoid;
+}
+
+li {
+  break-inside: avoid;
+}
+
+/* Ensure proper spacing in PDF */
+.pdf-content .prose {
+  max-width: none;
+  color: #000;
+}
+
+.pdf-content .prose p {
+  margin-bottom: 1em;
+}
+
+.pdf-content .prose ul {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

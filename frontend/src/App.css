@@ -1,0 +1,66 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Hide horizontal scrollbar for the nav on mobile while keeping scroll functionality */
+.nav-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  -webkit-overflow-scrolling: touch; /* iOS momentum */
+}
+.nav-scroll::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
+}
+
+/* Force wide two-column grid for service cards on md+ */
+@media (min-width: 768px) {
+  .cards-grid-2-wide {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(460px, 1fr)); /* 20% wider than 384 */
+  }
+}
+@media (min-width: 1280px) {
+  .cards-grid-2-wide {
+    grid-template-columns: repeat(2, minmax(538px, 1fr)); /* 20% wider than 448 */
+  }
+}

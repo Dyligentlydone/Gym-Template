@@ -1,0 +1,11 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm install --force && npm run build"
+
+[deploy]
+startCommand = "npm run start"
+restartPolicyType = "ON_FAILURE"
+numReplicas = 1
+
+[deploy.env]
+NODE_ENV = "production"

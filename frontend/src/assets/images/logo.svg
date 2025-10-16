@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" version="1.1" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <path d="M200 300 Q400 100 600 300" fill="none" stroke="#FFB90F" stroke-width="40"/>
+  <text x="250" y="400" font-family="Space_Grotesk" font-size="200" font-weight="bold" fill="#FFB90F">$why?</text>
+ </g>
+</svg>
