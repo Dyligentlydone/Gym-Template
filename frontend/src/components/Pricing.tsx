@@ -9,29 +9,29 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: 'Basic',
-    price: '$39/mo',
-    features: ['Gym floor access', 'Locker rooms', 'Open gym hours'],
-    cta: 'Join Basic',
+    name: 'Free Workout',
+    price: '$0',
+    features: ['24hr free pass'],
+    cta: 'Claim Offer',
   },
   {
-    name: 'Plus',
-    price: '$69/mo',
-    features: ['Everything in Basic', 'All classes', 'Guest pass x2/mo'],
-    cta: 'Join Plus',
+    name: '1 Week',
+    price: '$25',
+    features: ['Full week access', 'All equipment', 'Locker room access'],
+    cta: 'Start Today',
   },
   {
-    name: 'All-Access',
-    price: '$99/mo',
-    features: ['24/7 access', 'Unlimited classes', 'Sauna & recovery room'],
-    cta: 'Join All-Access',
+    name: '2 Weeks',
+    price: '$35',
+    features: ['Two full weeks', 'All equipment', 'Locker room access', '1 guest pass'],
+    cta: 'Get Started',
   },
 ]
 
 export default function Pricing() {
   return (
     <section id="pricing" className="py-20">
-      <h2 className="heading-oswald text-center text-3xl sm:text-4xl font-extrabold mb-10">Membership Plans</h2>
+      <h2 className="heading-oswald text-center text-3xl sm:text-4xl font-extrabold mb-10">Come on in!</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
         {plans.map((p) => (
           <div key={p.name} data-card-mask="true" className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col">
@@ -49,6 +49,14 @@ export default function Pricing() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="text-center mt-10 relative z-10">
+        <a 
+          href="#contact" 
+          className="inline-block rounded-lg bg-[#39A0ED] hover:bg-[#2f8bd0] text-black font-bold px-10 py-4 text-lg shadow-lg hover:scale-105 transition-all duration-300 relative z-10"
+        >
+          Get a membership
+        </a>
       </div>
     </section>
   )

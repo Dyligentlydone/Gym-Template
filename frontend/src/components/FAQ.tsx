@@ -10,7 +10,10 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-20">
       <h2 className="heading-oswald text-center text-3xl sm:text-4xl font-extrabold mb-10">FAQs</h2>
-      <div className="max-w-4xl mx-auto px-4 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5">
+      <div 
+        data-card-mask="true"
+        className="max-w-4xl mx-auto px-4 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5"
+      >
         {faqs.map((f, i) => (
           <details key={i} className="p-5">
             <summary className="cursor-pointer heading-oswald text-xl">{f.q}</summary>

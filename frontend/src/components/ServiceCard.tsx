@@ -137,7 +137,7 @@ export default function ServiceCard({ title, blurb, details, icon }: ServiceCard
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-[calc(100vw-2rem)] md:w-full mx-auto min-w-0 group rounded-xl border border-white/10 bg-black/[0.65] backdrop-blur-md overflow-hidden will-change-transform"
+      className="relative w-full mx-auto min-w-0 group rounded-xl border border-white/10 bg-black/[0.65] backdrop-blur-md overflow-hidden will-change-transform"
       data-card-mask="true"
       variants={revealVariants}
       initial="hidden"
