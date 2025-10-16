@@ -31,11 +31,11 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
     const isMobile = window.innerWidth < 768
     return isMobile ? [
       "together we rise.",
-      "Train. Sweat. Grow",
+      "Train. Sweat. Grow.",
       "Join a community that pushes you further."
     ] : [
       "together we rise.",
-      "Train. Sweat. Grow",
+      "Train. Sweat. Grow.",
       "Join a community that pushes you further."
     ]
   }, [])
