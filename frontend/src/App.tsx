@@ -7,6 +7,13 @@ import ServiceCard from './components/ServiceCard'
 import { servicesData } from './services/data'
 // Rotating roles removed for gym template
 import ContactMinimal from './components/ContactMinimal'
+import Pricing from './components/Pricing'
+import Trainers from './components/Trainers'
+import Gallery from './components/Gallery'
+import Testimonials from './components/Testimonials'
+import LocationBlock from './components/Location'
+import FAQ from './components/FAQ'
+import Footer from './components/Footer'
 
 function App() {
   // Track scroll progress (0 to 1)
@@ -99,8 +106,12 @@ function App() {
               Train Hard. Evolve Strong.
             </h1>
             <p className="text-center text-white/90 max-w-3xl text-sm sm:text-base md:text-lg leading-snug sm:leading-snug md:leading-normal">
-              Your Dyligent team builds, manages, and elevates your digital world, combining strategy, design, and next-gen technology.
+              Strength. Conditioning. Community. Everything you need to level up—under one roof.
             </p>
+            <div className="flex gap-3 mt-2">
+              <a href="#pricing" className="rounded-lg bg-[#39A0ED] hover:bg-[#2f8bd0] text-black font-semibold px-4 py-2">Join now</a>
+              <a href="#location" className="rounded-lg border border-white/30 hover:border-white/60 text-white font-semibold px-4 py-2">Book a tour</a>
+            </div>
           </div>
         </div>
 
@@ -113,13 +124,30 @@ function App() {
           </div>
         </div>
 
-        {/* Rotating roles section removed */}
+        {/* Pricing */}
+        <Pricing />
+
+        {/* Trainers */}
+        <Trainers />
+
+        {/* Gallery */}
+        <Gallery />
+
+        {/* Testimonials */}
+        <Testimonials />
 
         {/* Contact Section */}
         <div id="contact" className="w-full px-4 pb-24 mt-24">
           <ContactMinimal />
         </div>
+
+        {/* Location / Hours */}
+        <LocationBlock />
+
+        {/* FAQ */}
+        <FAQ />
       </div>
+      <Footer />
     </div>
   )
 }
