@@ -2,7 +2,7 @@ import React from 'react'
 
 const faqs = [
   { q: 'Do you offer a free trial?', a: 'Yes. We offer a 24hr trial period for everyone who hasn\'t experienced the gym yet.' },
-  { q: 'What memberships do you have?', a: 'Basic, Plus, and All-Access—cancel anytime.' },
+  { q: 'What are your hours?', a: 'We are open 24/7 ;)' },
   { q: 'Do you have personal training?', a: 'Yes. Book a 1:1 session or purchase a package.' },
 ]
 
