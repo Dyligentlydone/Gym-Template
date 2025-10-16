@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 import ParticleMorphing from './components/ParticleMorphing'
 import ServiceCard from './components/ServiceCard'
 import { servicesData } from './services/data'
-import RotatingRoles from './components/RotatingRoles'
+// Rotating roles removed for gym template
 import ContactMinimal from './components/ContactMinimal'
 
 function App() {
@@ -95,8 +95,8 @@ function App() {
         {/* Hero heading pinned to top */}
         <div className="absolute left-0 w-full z-20 top-16 sm:top-20 md:top-24 lg:top-28">
           <div className="container mx-auto px-4 pt-4 pb-4 flex flex-col items-center gap-3 sm:gap-4">
-            <h1 className="text-center text-white font-extrabold tracking-tight leading-tight text-xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Digital Artchitects
+            <h1 className="text-center text-white font-extrabold tracking-tight leading-tight text-2xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ fontFamily: 'Oswald, sans-serif' }}>
+              Train Hard. Evolve Strong.
             </h1>
             <p className="text-center text-white/90 max-w-3xl text-sm sm:text-base md:text-lg leading-snug sm:leading-snug md:leading-normal">
               Your Dyligent team builds, manages, and elevates your digital world, combining strategy, design, and next-gen technology.
@@ -113,22 +113,7 @@ function App() {
           </div>
         </div>
 
-        {/* We're not your ... we are all of them. */}
-        <div className="w-full px-4 pb-24 mt-24">
-          <div className="max-w-5xl mx-auto">
-            <RotatingRoles
-              roles={[
-                'Web development team',
-                'marketing team',
-                'social media team',
-                'creative studio',
-                'tech partner',
-                'digital evolution arcitects',
-              ]}
-              intervalMs={2200}
-            />
-          </div>
-        </div>
+        {/* Rotating roles section removed */}
 
         {/* Contact Section */}
         <div id="contact" className="w-full px-4 pb-24 mt-24">
