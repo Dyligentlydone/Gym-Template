@@ -27,7 +27,7 @@
     "vite": "5.0.8"
   },
   "devDependencies": {
-    "@rollup/rollup-darwin-arm64": "4.52.4",
+    "rollup": "4.24.0",
     "@tailwindcss/typography": "0.5.10",
     "@types/node": "20.10.4",
     "@types/react": "18.2.43",
