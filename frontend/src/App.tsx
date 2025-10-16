@@ -112,12 +112,6 @@ function App() {
         {/* Testimonials */}
         <Testimonials />
 
-        {/* Location / Hours */}
-        <LocationBlock />
-
-        {/* FAQ */}
-        <FAQ />
-
         {/* Owner's Quote */}
         <div className="w-full max-w-4xl mx-auto px-4 py-16">
           <div className="text-center">
@@ -130,6 +124,12 @@ function App() {
             </blockquote>
           </div>
         </div>
+
+        {/* Location / Hours */}
+        <LocationBlock />
+
+        {/* FAQ */}
+        <FAQ />
       </div>
       <Footer />
     </div>
