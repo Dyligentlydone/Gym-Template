@@ -34,7 +34,7 @@ export default function Pricing() {
       <h2 className="heading-oswald text-center text-3xl sm:text-4xl font-extrabold mb-10">Membership Plans</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
         {plans.map((p) => (
-          <div key={p.name} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col">
+          <div key={p.name} data-card-mask="true" className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col">
             <h3 className="heading-oswald text-2xl font-bold">{p.name}</h3>
             <div className="text-3xl font-extrabold mt-2">{p.price}</div>
             <ul className="mt-4 space-y-2 text-white/80">

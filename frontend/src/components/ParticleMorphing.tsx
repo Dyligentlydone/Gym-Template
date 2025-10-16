@@ -275,8 +275,8 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
       maskRectsRef.current = rects
     }
 
-    const FEATHER_PX = 24 // distance inward from the card edge to reach full mask (increased from 12)
-    const INNER_ALPHA_FACTOR = 0.08 // particles at FEATHER_PX inside are 8% opacity (stronger masking)
+    const FEATHER_PX = 32 // wider feather for smoother/stronger fade
+    const INNER_ALPHA_FACTOR = 0.04 // particles inside cards fade to 4% opacity (stronger masking)
 
     // Utility: point inside rounded-rect and distance to nearest border (inside only)
     const distToRoundedRectBorder = (x: number, y: number, rr: {left:number; top:number; right:number; bottom:number; radius:number}): number | null => {
@@ -468,11 +468,11 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 50 }}>
+    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
       <canvas
         ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full"
-        style={{ zIndex: 1000 }}
+        style={{ zIndex: 0 }}
       />
     </div>
   )

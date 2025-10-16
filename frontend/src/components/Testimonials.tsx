@@ -12,7 +12,7 @@ export default function Testimonials() {
       <h2 className="heading-oswald text-center text-3xl sm:text-4xl font-extrabold mb-10">What members say</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
         {testimonials.map((t) => (
-          <div key={t.name} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div key={t.name} data-card-mask="true" className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-white/90">“{t.text}”</p>
             <div className="mt-4 text-white/60">— {t.name}</div>
           </div>
