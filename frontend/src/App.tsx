@@ -67,9 +67,11 @@ function App() {
       {/* Gym Logo */}
       <div className="relative z-10 w-full flex justify-center pt-2">
         <img 
-          src="/assets/gym-logo.png" 
-          alt="GR City Gym Logo" 
+          src="/assets/gym-logo.png"
+          alt="GR City Gym Logo"
           className="h-36 w-auto object-contain"
+          loading="eager"
+          decoding="async"
         />
       </div>
       {/* Top navigation removed per request */}
