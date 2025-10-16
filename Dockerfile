@@ -12,8 +12,11 @@ RUN npm cache clean --force && \
     rm -rf node_modules package-lock.json && \
     npm install
 
-# Copy frontend source
+# Copy frontend source and logo
 COPY frontend/ ./
+
+# Copy GR City Gym logo to public directory
+COPY ["imgs/gr city gym logo.png", "./public/gr-city-gym-logo.png"]
 
 # Build the app
 RUN npm run build

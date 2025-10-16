@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 export default function ContactMinimal() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [interest, setInterest] = useState('Web Development / Optimization')
   const [message, setMessage] = useState('')
   const [busy, setBusy] = useState(false)
   const [ok, setOk] = useState<string | null>(null)
@@ -23,7 +22,7 @@ export default function ContactMinimal() {
     fetch(`${apiBase.replace(/\/$/, '')}/api/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, interest, message })
+      body: JSON.stringify({ name, email, message })
     })
       .then(async (r) => {
         if (!r.ok) {
@@ -36,7 +35,6 @@ export default function ContactMinimal() {
         setOk('Message sent! We will get back to you shortly.')
         setName('')
         setEmail('')
-        setInterest('Web Development / Optimization')
         setMessage('')
       })
       .catch((e: any) => {
@@ -88,21 +86,6 @@ export default function ContactMinimal() {
               </div>
             </div>
             <div>
-              <label htmlFor="interest" className="block text-sm text-white/70 mb-1">Interested in</label>
-              <select
-                id="interest"
-                value={interest}
-                onChange={(e) => setInterest(e.target.value)}
-                className="w-full rounded-lg bg-transparent border border-white/10 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#d7b73f]"
-              >
-                <option className="bg-black" value="Web Development / Optimization">Web Development / Optimization</option>
-                <option className="bg-black" value="Social Media Management">Social Media Management</option>
-                <option className="bg-black" value="Digital Marketing">Digital Marketing</option>
-                <option className="bg-black" value="Next Gen Tech">Next Gen Tech</option>
-                <option className="bg-black" value="Other">Other</option>
-              </select>
-            </div>
-            <div>
               <label htmlFor="message" className="block text-sm text-white/70 mb-1">Message</label>
               <textarea
                 id="message"
@@ -120,7 +103,7 @@ export default function ContactMinimal() {
               <button
                 type="submit"
                 disabled={busy}
-                className="px-5 py-2.5 rounded-lg bg-[#d7b73f] text-black font-semibold hover:bg-[#c8a930] transition-colors disabled:opacity-60"
+                className="px-6 py-3 rounded-lg bg-[#39A0ED] hover:bg-[#2f8bd0] text-black font-bold transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:hover:scale-100"
               >
                 {busy ? 'Sending...' : 'Send message'}
               </button>
