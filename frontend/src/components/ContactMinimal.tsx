@@ -45,6 +45,19 @@ export default function ContactMinimal() {
 
   return (
     <section aria-labelledby="contact-heading" className="w-full">
+      {/* Gym Logo - At the very top */}
+      <div className="relative z-20 w-full flex justify-center">
+        <a href="/">
+          <img 
+            src="/assets/gr-city-gym-logo.png"
+            alt="GR City Gym"
+            className="h-36 w-auto object-contain hover:opacity-90 transition-opacity"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+      </div>
+      
       <div className="max-w-3xl mx-auto">
         <h2 id="contact-heading" className="text-center font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl mb-6">
           Contact us
