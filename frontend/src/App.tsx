@@ -67,11 +67,16 @@ function App() {
       {/* Gym Logo */}
       <div className="relative z-10 w-full flex justify-center pt-2">
         <img 
-          src="/assets/gym-logo.png"
-          alt="GR City Gym Logo"
+          src="/assets/gr-city-gym-logo.png"
+          alt="GR City Gym"
           className="h-36 w-auto object-contain"
           loading="eager"
           decoding="async"
+          onError={(e) => {
+            console.error('Failed to load logo');
+            const target = e.target as HTMLImageElement;
+            target.alt = 'GR City Gym';
+          }}
         />
       </div>
       {/* Top navigation removed per request */}
