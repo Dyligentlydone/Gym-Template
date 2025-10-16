@@ -30,19 +30,19 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
   const getTextLines = useCallback(() => {
     const isMobile = window.innerWidth < 768
     return isMobile ? [
-      "{ Dyligent }",
-      "( creating and defining data structures )",
-      "Done Dyligent."
+      "together we rise.",
+      "Train. Sweat. Grow",
+      "Join a community that pushes you further."
     ] : [
-      "{ Dyligent }",
-      "( Code Block / Object / Function Body )",
-      "Meaning: Implies Dyligent is the core logic or engine behind something powerful"
+      "together we rise.",
+      "Train. Sweat. Grow",
+      "Join a community that pushes you further."
     ]
   }, [])
 
-  // Generate particle colors (all lines brand gold)
+  // Generate particle colors (match background circles: white)
   const getParticleColor = (_lineIndex: number) => {
-    return '#d7b73f' // Brand gold
+    return '#ffffff'
   }
 
   // Initialize particles from text
@@ -157,7 +157,8 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
           const { x, y } = arr[k]
           // Random start position outside canvas
           const angle = Math.random() * Math.PI * 2
-          const distance = Math.max(cssW, cssH) * 0.8
+          // Start closer so particles converge sooner
+          const distance = Math.max(cssW, cssH) * 0.6
           const startX = cssW / 2 + Math.cos(angle) * distance
           const startY2 = cssH / 2 + Math.sin(angle) * distance
 
@@ -199,7 +200,7 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
           const xCss = nx / dpr
           const yCss = ny / dpr
           const angle = Math.random() * Math.PI * 2
-          const distance = Math.max(cssW, cssH) * 0.8
+          const distance = Math.max(cssW, cssH) * 0.6
           const startX = cssW / 2 + Math.cos(angle) * distance
           const startY2 = cssH / 2 + Math.sin(angle) * distance
           particles.push({
@@ -233,10 +234,9 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr)
 
-    // Map scroll progress to animation progress
-    // Mobile-only: morph in much sooner
+    // Map scroll progress to animation progress — make it complete sooner
     const isMobileViewport = window.innerWidth < 768
-    const morphDivisor = isMobileViewport ? 0.03 : 0.08
+    const morphDivisor = isMobileViewport ? 0.02 : 0.05
     const progress = Math.max(0, Math.min(1, scrollProgress / morphDivisor))
     
     // Global cross-fade as the services section enters the hero viewport
@@ -327,8 +327,8 @@ export default function ParticleMorphing({ scrollProgress }: ParticleMorphingPro
       particle.x = particle.startX + (particle.targetX - particle.startX) * progress
       particle.y = particle.startY + (particle.targetY - particle.startY) * progress
       
-      // Opacity based on progress
-      const opacity = Math.min(1, progress * 1.2)
+      // Opacity based on progress (quicker ramp)
+      const opacity = Math.min(1, progress * 1.7)
       
       if (opacity > 0.01) {
         ctx.save()

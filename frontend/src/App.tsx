@@ -64,18 +64,7 @@ function App() {
     <div className="min-h-screen text-white relative">
       <AnimatedBackground />
       <ParticleMorphing scrollProgress={scrollProgress} />
-      {/* Top navigation centered; single-line fit on mobile with abbreviated labels */}
-      <nav className="absolute top-0 left-0 w-full z-30">
-        <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-3 flex justify-center max-w-full overflow-visible">
-          <ul className="flex items-center gap-2 sm:gap-7 text-[11px] sm:text-sm whitespace-nowrap flex-nowrap">
-            <li>
-              <Link to="/contact" className="text-white visited:text-white inline-block px-2 sm:px-3 py-1 rounded-full border border-transparent transition-colors hover:text-[#d7b73f] hover:border-[#d7b73f]">
-                <span>Contact</span>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      {/* Top navigation removed per request */}
       <div className="container mx-auto px-4 pt-14 sm:pt-20 md:pt-24 flex flex-col items-center min-h-screen">
         {/* Hero at the very top */}
         <section className="w-full max-w-4xl text-center pb-8">
